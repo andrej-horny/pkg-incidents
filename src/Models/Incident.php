@@ -58,7 +58,7 @@ class Incident extends Model implements HasStatesContract
         $type = is_array($type) ? $type : [$type];
 
         $query->whereHas('type', function ($q) use ($type) {
-            $q->whereIn('code', $type);
+            $q->byCode($type);
         });
     }    
 }
